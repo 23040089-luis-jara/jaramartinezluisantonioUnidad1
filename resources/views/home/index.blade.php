@@ -42,7 +42,7 @@
             <ul class="navbar-nav me-5">
 
                 <li class="nav-item">
-                    <a class="nav-link" href="#">
+                    <a class="nav-link" href="{{ route('login') }}">
                         Iniciar Sesión
                     </a>
                 </li>

@@ -21,3 +21,60 @@ Route::get('/index', [RegistroController::class, 'registro'])
 
 Route::post('/registro', [RegistroController::class, 'store'])
     ->name('registro.guardar');
+
+
+
+
+use App\Http\Controllers\LoginController;
+use App\Http\Controllers\SessionController;
+
+/*
+|--------------------------------------------------------------------------
+| INDEX
+|--------------------------------------------------------------------------
+*/
+
+Route::get('/a', function () {
+    return view('home.index');
+})->name('inicio.web');
+
+
+/*
+|--------------------------------------------------------------------------
+| LOGIN
+|--------------------------------------------------------------------------
+*/
+
+Route::get('/login', [LoginController::class, 'index'])
+        ->name('login');
+
+Route::post('/login', [LoginController::class, 'login'])
+        ->name('login.validar');
+
+/*
+|--------------------------------------------------------------------------
+| SESSION
+|--------------------------------------------------------------------------
+*/
+
+Route::get('/session', [SessionController::class, 'index'])
+        ->name('session');
+
+/*
+|--------------------------------------------------------------------------
+| ADMIN
+|--------------------------------------------------------------------------
+*/
+
+Route::get('/admin', function () {
+    return view('admin');
+})->name('admin');
+
+/*
+|--------------------------------------------------------------------------
+| LOGOUT
+|--------------------------------------------------------------------------
+*/
+
+Route::post('/logout', [LoginController::class, 'logout'])
+        ->name('logout');
