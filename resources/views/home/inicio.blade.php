@@ -12,6 +12,7 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <!-- Toastr CSS -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css">
+    <script src="https://www.google.com/recaptcha/api.js" async defer></script>
     <style>
         body {
             margin: 0;
@@ -292,6 +293,14 @@
            name="password"
            placeholder="Contraseña">
 
+            <br>
+
+            <div class="g-recaptcha"
+                data-sitekey="{{ env('RECAPTCHA_SITE_KEY') }}">
+            </div>
+
+            <br>
+            
     <button type="submit"
             class="btn btn-primary">
             Ingresar

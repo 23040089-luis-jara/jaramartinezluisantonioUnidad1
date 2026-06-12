@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Http;
 
 class LoginController extends Controller
 {
@@ -25,6 +26,16 @@ class LoginController extends Controller
             'email' => 'required|email',
             'password' => 'required'
         ]);
+
+      // Validar reCAPTCHA
+    if (!$request->filled('g-recaptcha-response')) {
+
+        return back()->with(
+            'error',
+            'Debes confirmar que no eres un robot.'
+        );
+    }
+
 
         // Buscar usuario por correo
         $usuario = DB::table('formatos')
