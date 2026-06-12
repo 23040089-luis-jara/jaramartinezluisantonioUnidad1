@@ -78,3 +78,9 @@ Route::get('/admin', function () {
 
 Route::post('/logout', [LoginController::class, 'logout'])
         ->name('logout');
+
+use App\Http\Controllers\ChatBotController;
+
+Route::post('/chatbot',
+    [ChatBotController::class,'respuesta'])
+    ->name('chatbot');

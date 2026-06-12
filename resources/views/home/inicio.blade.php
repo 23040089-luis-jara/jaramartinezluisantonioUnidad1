@@ -11,244 +11,10 @@
     <!-- Bootstrap Stylesheet -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <!-- Toastr CSS -->
+    <link rel="stylesheet" href="{{ asset('css/inicio.css') }}">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css">
     <script src="https://www.google.com/recaptcha/api.js" async defer></script>
-    <style>
-        body {
-            margin: 0;
-            font-family: Arial, Helvetica, sans-serif;
-            background-color: #f4f4f4;
-            padding-top: 70px; /* Espacio para el navbar fijo */
-        }
 
-        /* ===== NAVBAR ===== */
-        .navbar-custom {
-            background: linear-gradient(to right, #0784a3,  #003366) !important;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
-        }
-
-        .top-line {
-            background-color: #BF9B4C;
-            height: 8px;
-            width: 100%;
-            position: fixed;
-            top: 0;
-            left: 0;
-            z-index: 1050;
-        }
-
-        .navbar-nav .nav-link {
-            position: relative;
-            color: #FFFFFF !important;
-            font-weight: 500;
-            padding: 8px 15px;
-            border-radius: 5px;
-            margin: 0 5px;
-            transition: all 0.3s ease;
-        }
-
-        /* línea oculta */
-.navbar-nav .nav-link::after {
-    content: "";
-    position: absolute;
-    left: 15px;          /* respeta tu padding */
-    bottom: 2px;         /* línea debajo del texto */
-    width: 0;
-    height: 2px;
-    background-color: #ffffff;
-    transition: width 0.3s ease;
-}
-
-/* aparece al hover */
-.navbar-nav .nav-link:hover::after {
-    width: calc(100% - 30px); /* ancho real del texto */
-}
-
-        .navbar-nav .nav-link:hover {
-            
-            color: #BF9B4C !important;
-            transform: translateY(-2px);
-        }
-
-        .navbar-brand {
-            margin-left: 20px;
-            display: flex;
-            align-items: center;
-        }
-
-        .navbar-brand img {
-            height: 60px;
-            max-width: 100%;
-            object-fit: contain;
-        }
-
-        .navbar-toggler {
-            border: none;
-            outline: none;
-        }
-
-        .navbar-toggler-icon {
-            background-image: url('data:image/svg+xml;charset=utf8,<svg viewBox="0 0 30 30" xmlns="http://www.w3.org/2000/svg"><path stroke="%23FFFFFF" stroke-width="2" stroke-linecap="round" stroke-miterlimit="10" d="M4 7h22M4 15h22M4 23h22"/></svg>');
-            width: 30px;
-            height: 30px;
-        }
-
-        /* ===== FOOTER ===== */
-        footer {
-            background: linear-gradient(to bottom, #003366, #0784a3);
-            color: white;
-            padding: 40px 0 20px;
-            border-top: 8px solid #BF9B4C;
-            margin-top: 50px;
-        }
-
-        .footer-content {
-            max-width: 1200px;
-            margin: 0 auto;
-            display: flex;
-            justify-content: space-around;
-            flex-wrap: wrap;
-            gap: 30px;
-            padding: 0 20px;
-        }
-
-        .footer-section {
-            flex: 1;
-            min-width: 250px;
-        }
-
-        .footer-section h4 {
-            color: #BF9B4C;
-            font-size: 18px;
-            margin-bottom: 15px;
-            border-bottom: 2px solid rgba(255, 204, 0, 0.3);
-            padding-bottom: 5px;
-        }
-
-        .footer-section p {
-            color: #E0E0E0;
-            margin-bottom: 12px;
-            font-size: 15px;
-            line-height: 1.6;
-            transition: color 0.3s ease;
-        }
-
-        .footer-section p:hover {
-            color: #BF9B4C;
-        }
-
-        .footer-bottom {
-            text-align: center;
-            margin-top: 30px;
-            padding-top: 20px;
-            border-top: 1px solid rgba(255, 255, 255, 0.1);
-            font-size: 14px;
-            color: #B0B0B0;
-        }
-
-        /* ===== RESPONSIVE ===== */
-        @media (max-width: 992px) {
-            .container {
-                flex-direction: column;
-                padding: 40px 20px;
-            }
-            
-            .box-img {
-                width: 100%;
-                height: 300px;
-                margin-bottom: 20px;
-            }
-            
-            .content-center {
-                order: -1;
-                margin-bottom: 30px;
-                width: 100%;
-            }
-            
-            .navbar-nav {
-                background-color: rgba(0, 51, 102, 0.95);
-                padding: 15px;
-                border-radius: 0 0 10px 10px;
-            }
-            
-            .navbar-nav .nav-link {
-                text-align: center;
-                margin: 5px 0;
-            }
-        }
-
-        @media (max-width: 768px) {
-            .content-center h1 {
-                font-size: 26px;
-            }
-            
-            .footer-content {
-                flex-direction: column;
-                text-align: center;
-            }
-        }
-
-            .brand-text {
-    margin-left: 12px;
-    font-size: 18px;
-    font-weight: 600;
-    color: #FFFFFF;
-    white-space: nowrap;
-}
-
-
-
-.container {
-            max-width: 1100px;
-            background: transparent;
-            padding: 30px;
-            border-radius: 2px;
-            display: flex;
-            align-items: center;
-            margin-top: 20px;
-        }
-        .info-section {
-            flex: 1;
-            padding: 20px;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 415px;
-        }
-        .info-section img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            border-radius: 8px;
-            box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.3);
-        }
-        .form-section {
-            flex: 1;
-            padding: 30px;
-            background-color: #fff;
-            border-radius: 8px;
-            box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.3);
-        }
-        .form-control {
-            margin-bottom: 20px;
-            padding: 12px;
-            font-size: 1.1rem;
-            border-radius: 50px;
-            border: 1px solid #ced4da;
-            transition: border-color 0.3s ease;
-        }
-        .form-control:focus {
-            border-color: #007bff;
-            box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.25);
-        }
-        .btn-primary {
-            width: auto;
-            margin-top: 15px;
-            padding: 8px 20px;
-            font-size: 1rem;
-            border-radius: 50px;
-        }
-    </style>
 </head>
 <body>
 
@@ -262,13 +28,78 @@
         </button>
         <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
             <ul class="navbar-nav me-5"><!--class="navbar-nav ms-auto"-->
-                <li class="nav-item"><a class="nav-link" href="../pages/registro.php">Registrarse Ahora</a></li>
-                <li class="nav-item"><a class="nav-link" href="../Index.html">¡Regresar al sitio!</a></li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{{ route('registro') }}">Registrarse Ahora</a>
+                </li>
+
+                <li class="nav-item">
+                    <a class="nav-link" href="{{ route('inicio.web') }}">¡Regresar al sitio!</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link"
+                    href="#"
+                    data-bs-toggle="modal"
+                    data-bs-target="#chatModal">
+
+                    Asistente
+                    </a>
+                </li>
             </ul>
         </div>
     </div>
 </nav>
 <!-- Navbar End -->
+<div class="modal fade"
+     id="chatModal"
+     tabindex="-1">
+
+    <div class="modal-dialog">
+
+        <div class="modal-content">
+
+            <div class="modal-header">
+
+                <h5 class="modal-title">
+                    Asistente Virtual
+                </h5>
+
+                <button type="button"
+                        class="btn-close"
+                        data-bs-dismiss="modal">
+                </button>
+
+            </div>
+
+            <div class="modal-body">
+
+                <div id="chatBox"
+                     style="height:300px;
+                            overflow-y:auto;
+                            border:1px solid #ddd;
+                            padding:10px;">
+                </div>
+
+                <input type="text"
+                       id="mensaje"
+                       class="form-control mt-3"
+                       placeholder="Escribe tu pregunta">
+
+            </div>
+
+            <div class="modal-footer">
+
+                <button class="btn btn-primary"
+                        onclick="enviarMensaje()">
+                    Enviar
+                </button>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</div> 
 
 <!-- CONTENIDO -->
 <div class="container">
@@ -372,5 +203,48 @@ document.getElementById('email').addEventListener('input', function () {
 toastr.error("{{ session('error') }}");
 </script>
 @endif
+
+<script>
+
+function enviarMensaje()
+{
+    let mensaje =
+        document.getElementById('mensaje').value;
+
+    fetch('/chatbot',{
+
+        method:'POST',
+
+        headers:{
+            'Content-Type':'application/json',
+            'X-CSRF-TOKEN':
+            '{{ csrf_token() }}'
+        },
+
+        body:JSON.stringify({
+            mensaje:mensaje
+        })
+
+    })
+    .then(response=>response.json())
+    .then(data=>{
+
+        let chat =
+            document.getElementById('chatBox');
+
+        chat.innerHTML +=
+        '<p><b>Tú:</b> '+mensaje+'</p>';
+
+        chat.innerHTML +=
+        '<p><b>Bot:</b> '
+        +data.respuesta+
+        '</p>';
+
+        document.getElementById('mensaje').value='';
+    });
+}
+
+</script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>

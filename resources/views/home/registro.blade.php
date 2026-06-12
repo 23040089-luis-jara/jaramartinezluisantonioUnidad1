@@ -25,13 +25,78 @@
         </button>
         <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
             <ul class="navbar-nav me-5"><!--class="navbar-nav ms-auto"-->
-                <li class="nav-item"><a class="nav-link" href="../pages/inicio.php">Iniciar Sesión</a></li>
-                <li class="nav-item"><a class="nav-link" href="../Index.html">¡Regresar al sitio!</a></li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{{ route('login') }}">Iniciar Sesión</a>
+                </li>
+
+                <li class="nav-item">
+                    <a class="nav-link" href="{{ route('inicio.web') }}">¡Regresar al sitio!</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link"
+                    href="#"
+                    data-bs-toggle="modal"
+                    data-bs-target="#chatModal">
+
+                    Asistente
+                    </a>
+                </li>
             </ul>
         </div>
     </div>
 </nav>
 <!-- Navbar End -->
+<div class="modal fade"
+     id="chatModal"
+     tabindex="-1">
+
+    <div class="modal-dialog">
+
+        <div class="modal-content">
+
+            <div class="modal-header">
+
+                <h5 class="modal-title">
+                    Asistente Virtual
+                </h5>
+
+                <button type="button"
+                        class="btn-close"
+                        data-bs-dismiss="modal">
+                </button>
+
+            </div>
+
+            <div class="modal-body">
+
+                <div id="chatBox"
+                     style="height:300px;
+                            overflow-y:auto;
+                            border:1px solid #ddd;
+                            padding:10px;">
+                </div>
+
+                <input type="text"
+                       id="mensaje"
+                       class="form-control mt-3"
+                       placeholder="Escribe tu pregunta">
+
+            </div>
+
+            <div class="modal-footer">
+
+                <button class="btn btn-primary"
+                        onclick="enviarMensaje()">
+                    Enviar
+                </button>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</div> 
 
     <!-- CONTENIDO -->
 
@@ -293,5 +358,47 @@ function togglePassword(id, icon) {
     <!-- Bootstrap JS -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 
+<script>
+
+function enviarMensaje()
+{
+    let mensaje =
+        document.getElementById('mensaje').value;
+
+    fetch('/chatbot',{
+
+        method:'POST',
+
+        headers:{
+            'Content-Type':'application/json',
+            'X-CSRF-TOKEN':
+            '{{ csrf_token() }}'
+        },
+
+        body:JSON.stringify({
+            mensaje:mensaje
+        })
+
+    })
+    .then(response=>response.json())
+    .then(data=>{
+
+        let chat =
+            document.getElementById('chatBox');
+
+        chat.innerHTML +=
+        '<p><b>Tú:</b> '+mensaje+'</p>';
+
+        chat.innerHTML +=
+        '<p><b>Bot:</b> '
+        +data.respuesta+
+        '</p>';
+
+        document.getElementById('mensaje').value='';
+    });
+}
+
+</script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>

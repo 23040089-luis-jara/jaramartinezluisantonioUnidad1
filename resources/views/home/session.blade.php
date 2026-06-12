@@ -11,6 +11,7 @@
     <!-- Bootstrap Stylesheet -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css">
+    <link rel="stylesheet" href="{{ asset('css/session.css') }}">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
 
@@ -38,203 +39,6 @@ document.onmousemove = document.onkeypress = () => {
 };
 </script>
 
-    <style>
-        body {
-            margin: 0;
-            font-family: Arial, Helvetica, sans-serif;
-            background-color: #f4f4f4;
-            padding-top: 70px; /* Espacio para el navbar fijo */
-        }
-
-        /* ===== NAVBAR ===== */
-        .navbar-custom {
-            background: linear-gradient(to right, #0784a3,  #333536) !important;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
-        }
-
-        .top-line {
-            background-color: #BF9B4C;
-            height: 8px;
-            width: 100%;
-            position: fixed;
-            top: 0;
-            left: 0;
-            z-index: 1050;
-        }
-
-        .navbar-nav .nav-link {
-            position: relative;
-            color: #FFFFFF !important;
-            font-weight: 500;
-            padding: 8px 15px;
-            border-radius: 5px;
-            margin: 0 5px;
-            transition: all 0.3s ease;
-        }
-
-        /* línea oculta */
-.navbar-nav .nav-link::after {
-    content: "";
-    position: absolute;
-    left: 15px;          /* respeta tu padding */
-    bottom: 2px;         /* línea debajo del texto */
-    width: 0;
-    height: 2px;
-    background-color: #ffffff;
-    transition: width 0.3s ease;
-}
-
-/* aparece al hover */
-.navbar-nav .nav-link:hover::after {
-    width: calc(100% - 30px); /* ancho real del texto */
-}
-
-        .navbar-nav .nav-link:hover {
-            
-            color: #BF9B4C !important;
-            transform: translateY(-2px);
-        }
-
-        .navbar-brand {
-            margin-left: 20px;
-            display: flex;
-            align-items: center;
-        }
-
-        .navbar-brand img {
-            height: 60px;
-            max-width: 100%;
-            object-fit: contain;
-        }
-
-        .navbar-toggler {
-            border: none;
-            outline: none;
-        }
-
-        .navbar-toggler-icon {
-            background-image: url('data:image/svg+xml;charset=utf8,<svg viewBox="0 0 30 30" xmlns="http://www.w3.org/2000/svg"><path stroke="%23FFFFFF" stroke-width="2" stroke-linecap="round" stroke-miterlimit="10" d="M4 7h22M4 15h22M4 23h22"/></svg>');
-            width: 30px;
-            height: 30px;
-        }
-
-        /* ===== FOOTER ===== */
-        footer {
-            background: linear-gradient(to bottom, #333536, #0784a3);
-            color: white;
-            padding: 40px 0 20px;
-            border-top: 8px solid #BF9B4C;
-            margin-top: 50px;
-        }
-
-        .footer-content {
-            max-width: 1200px;
-            margin: 0 auto;
-            display: flex;
-            justify-content: space-around;
-            flex-wrap: wrap;
-            gap: 30px;
-            padding: 0 20px;
-        }
-
-        .footer-section {
-            flex: 1;
-            min-width: 250px;
-        }
-
-        .footer-section h4 {
-            color: #BF9B4C;
-            font-size: 18px;
-            margin-bottom: 15px;
-            border-bottom: 2px solid rgba(255, 204, 0, 0.3);
-            padding-bottom: 5px;
-        }
-
-        .footer-section p {
-            color: #E0E0E0;
-            margin-bottom: 12px;
-            font-size: 15px;
-            line-height: 1.6;
-            transition: color 0.3s ease;
-        }
-
-        .footer-section p:hover {
-            color: #BF9B4C;
-        }
-
-        .footer-bottom {
-            text-align: center;
-            margin-top: 30px;
-            padding-top: 20px;
-            border-top: 1px solid rgba(255, 255, 255, 0.1);
-            font-size: 14px;
-            color: #B0B0B0;
-        }
-
-        /* ===== RESPONSIVE ===== */
-        @media (max-width: 992px) {
-            .container {
-                flex-direction: column;
-                padding: 40px 20px;
-            }
-            
-            .box-img {
-                width: 100%;
-                height: 300px;
-                margin-bottom: 20px;
-            }
-            
-            .content-center {
-                order: -1;
-                margin-bottom: 30px;
-                width: 100%;
-            }
-            
-            .navbar-nav {
-                background-color: rgba(0, 51, 102, 0.95);
-                padding: 15px;
-                border-radius: 0 0 10px 10px;
-            }
-            
-            .navbar-nav .nav-link {
-                text-align: center;
-                margin: 5px 0;
-            }
-        }
-
-        @media (max-width: 768px) {
-            .content-center h1 {
-                font-size: 26px;
-            }
-            
-            .footer-content {
-                flex-direction: column;
-                text-align: center;
-            }
-        }
-
-            .brand-text {
-    margin-left: 12px;
-    font-size: 18px;
-    font-weight: 600;
-    color: #FFFFFF;
-    white-space: nowrap;
-}
-
-.titulo-formatos {
-    color: #003366; /* azul institucional */
-    font-weight: bold;
-    margin-top: 40px;
-    text-transform: uppercase;
-}
-
-.container .card {
-    border: 2px solid #BF9B4C;
-    border-radius: 10px;
-}
-
-
-    </style>
 </head>
 <body>
 
@@ -255,6 +59,15 @@ document.onmousemove = document.onkeypress = () => {
         </button>
         <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
             <ul class="navbar-nav me-5"><!--class="navbar-nav ms-auto"-->
+                <li class="nav-item">
+                    <a class="nav-link"
+                    href="#"
+                    data-bs-toggle="modal"
+                    data-bs-target="#chatModal">
+
+                    Asistente
+                    </a>
+                </li>
                 <li class="nav-item"><a class="nav-link" href="misdoc.php">Mis Enviados</a></li>
                 <li class="nav-item"><a class="nav-link" href="enviarpdf.php">¡Enviar Formato!</a></li>
                 <li class="nav-item"><form method="POST"
@@ -276,6 +89,57 @@ document.onmousemove = document.onkeypress = () => {
     </div>
 </nav>
 <!-- Navbar End -->
+<div class="modal fade"
+     id="chatModal"
+     tabindex="-1">
+
+    <div class="modal-dialog">
+
+        <div class="modal-content">
+
+            <div class="modal-header">
+
+                <h5 class="modal-title">
+                    Asistente Virtual
+                </h5>
+
+                <button type="button"
+                        class="btn-close"
+                        data-bs-dismiss="modal">
+                </button>
+
+            </div>
+
+            <div class="modal-body">
+
+                <div id="chatBox"
+                     style="height:300px;
+                            overflow-y:auto;
+                            border:1px solid #ddd;
+                            padding:10px;">
+                </div>
+
+                <input type="text"
+                       id="mensaje"
+                       class="form-control mt-3"
+                       placeholder="Escribe tu pregunta">
+
+            </div>
+
+            <div class="modal-footer">
+
+                <button class="btn btn-primary"
+                        onclick="enviarMensaje()">
+                    Enviar
+                </button>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</div> 
 
 <!-- CONTENIDO -->
 
@@ -286,23 +150,67 @@ document.onmousemove = document.onkeypress = () => {
 
 <div class="container mt-4">
     <div class="row">
-        @foreach($formatos as $r)
-            <div class="col-md-4 mb-4">
-                <div class="card shadow">
-                    <div class="card-body">
-                        <h5 class="card-title">{{ $r->telefono }}</h5>
-                        <p class="card-text">
-                            
-                        </p>
 
-                        <!-- Descargar -->
-                       
-                        </a>
+        <!-- Hepatitis A -->
+        <div class="col-md-6 mb-4">
+            <div class="card shadow h-100">
+                <div class="card-body">
+                    <h5 class="card-title">
+                        Hepatitis A
+                    </h5>
 
-                    </div>
+                    <p class="card-text">
+                        La hepatitis A es una enfermedad infecciosa causada por el virus
+                        de la hepatitis A, el cual afecta directamente al hígado. Se
+                        transmite principalmente por el consumo de alimentos o agua
+                        contaminados, así como por el contacto cercano con personas
+                        infectadas. Esta enfermedad provoca inflamación hepática y puede
+                        dificultar que el organismo elimine adecuadamente toxinas y procese
+                        nutrientes esenciales.
+                    </p>
+
+                    <p class="card-text">
+                        Entre los síntomas más frecuentes se encuentran la fatiga,
+                        fiebre, pérdida del apetito, náuseas, dolor abdominal e ictericia,
+                        que provoca una coloración amarillenta en la piel y los ojos.
+                        Aunque la mayoría de las personas se recuperan completamente,
+                        algunos pacientes pueden presentar complicaciones graves,
+                        especialmente si tienen enfermedades hepáticas previas.
+                    </p>
                 </div>
             </div>
-        @endforeach
+        </div>
+
+        <!-- Hepatitis B -->
+        <div class="col-md-6 mb-4">
+            <div class="card shadow h-100">
+                <div class="card-body">
+                    <h5 class="card-title">
+                        Hepatitis B
+                    </h5>
+
+                    <p class="card-text">
+                        La hepatitis B es una infección viral que se transmite mediante
+                        sangre, fluidos corporales, relaciones sexuales sin protección o
+                        de madre a hijo durante el parto. El virus ataca las células del
+                        hígado, generando inflamación y afectando funciones esenciales
+                        como la producción de proteínas, el almacenamiento de energía y
+                        la eliminación de sustancias tóxicas.
+                    </p>
+
+                    <p class="card-text">
+                        Esta enfermedad puede presentarse de forma aguda o convertirse en
+                        una infección crónica. Cuando permanece durante años en el
+                        organismo, aumenta el riesgo de desarrollar cirrosis, insuficiencia
+                        hepática y cáncer de hígado. Los síntomas más comunes incluyen
+                        cansancio extremo, fiebre, dolor articular, náuseas, pérdida del
+                        apetito e ictericia, aunque algunas personas pueden no presentar
+                        síntomas durante largos periodos.
+                    </p>
+                </div>
+            </div>
+        </div>
+
     </div>
 </div>
 
@@ -342,6 +250,47 @@ document.onmousemove = document.onkeypress = () => {
 
     <!-- Bootstrap JS -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+<script>
 
+function enviarMensaje()
+{
+    let mensaje =
+        document.getElementById('mensaje').value;
+
+    fetch('/chatbot',{
+
+        method:'POST',
+
+        headers:{
+            'Content-Type':'application/json',
+            'X-CSRF-TOKEN':
+            '{{ csrf_token() }}'
+        },
+
+        body:JSON.stringify({
+            mensaje:mensaje
+        })
+
+    })
+    .then(response=>response.json())
+    .then(data=>{
+
+        let chat =
+            document.getElementById('chatBox');
+
+        chat.innerHTML +=
+        '<p><b>Tú:</b> '+mensaje+'</p>';
+
+        chat.innerHTML +=
+        '<p><b>Bot:</b> '
+        +data.respuesta+
+        '</p>';
+
+        document.getElementById('mensaje').value='';
+    });
+}
+
+</script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>
