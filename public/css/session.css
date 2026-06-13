@@ -1,0 +1,261 @@
+  body {
+            margin: 0;
+            font-family: Arial, Helvetica, sans-serif;
+            background-color: #f4f4f4;
+            padding-top: 70px; /* Espacio para el navbar fijo */
+        }
+
+        /* ===== NAVBAR ===== */
+        .navbar-custom {
+            background: linear-gradient(to right, #0784a3,  #333536) !important;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+
+        .top-line {
+            background-color: #BF9B4C;
+            height: 8px;
+            width: 100%;
+            position: fixed;
+            top: 0;
+            left: 0;
+            z-index: 1050;
+        }
+
+        .navbar-nav .nav-link {
+            position: relative;
+            color: #FFFFFF !important;
+            font-weight: 500;
+            padding: 8px 15px;
+            border-radius: 5px;
+            margin: 0 5px;
+            transition: all 0.3s ease;
+        }
+
+        /* línea oculta */
+.navbar-nav .nav-link::after {
+    content: "";
+    position: absolute;
+    left: 15px;          /* respeta tu padding */
+    bottom: 2px;         /* línea debajo del texto */
+    width: 0;
+    height: 2px;
+    background-color: #ffffff;
+    transition: width 0.3s ease;
+}
+
+/* aparece al hover */
+.navbar-nav .nav-link:hover::after {
+    width: calc(100% - 30px); /* ancho real del texto */
+}
+
+        .navbar-nav .nav-link:hover {
+            
+            color: #BF9B4C !important;
+            transform: translateY(-2px);
+        }
+
+        .navbar-brand {
+            margin-left: 20px;
+            display: flex;
+            align-items: center;
+        }
+
+        .navbar-brand img {
+            height: 60px;
+            max-width: 100%;
+            object-fit: contain;
+        }
+
+        .navbar-toggler {
+            border: none;
+            outline: none;
+        }
+
+        .navbar-toggler-icon {
+            background-image: url('data:image/svg+xml;charset=utf8,<svg viewBox="0 0 30 30" xmlns="http://www.w3.org/2000/svg"><path stroke="%23FFFFFF" stroke-width="2" stroke-linecap="round" stroke-miterlimit="10" d="M4 7h22M4 15h22M4 23h22"/></svg>');
+            width: 30px;
+            height: 30px;
+        }
+
+        /* ===== FOOTER ===== */
+        footer {
+            background: linear-gradient(to bottom, #333536, #0784a3);
+            color: white;
+            padding: 40px 0 20px;
+            border-top: 8px solid #BF9B4C;
+            margin-top: 50px;
+        }
+
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-around;
+            flex-wrap: wrap;
+            gap: 30px;
+            padding: 0 20px;
+        }
+
+        .footer-section {
+            flex: 1;
+            min-width: 250px;
+        }
+
+        .footer-section h4 {
+            color: #BF9B4C;
+            font-size: 18px;
+            margin-bottom: 15px;
+            border-bottom: 2px solid rgba(255, 204, 0, 0.3);
+            padding-bottom: 5px;
+        }
+
+        .footer-section p {
+            color: #E0E0E0;
+            margin-bottom: 12px;
+            font-size: 15px;
+            line-height: 1.6;
+            transition: color 0.3s ease;
+        }
+
+        .footer-section p:hover {
+            color: #BF9B4C;
+        }
+
+        .footer-bottom {
+            text-align: center;
+            margin-top: 30px;
+            padding-top: 20px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            font-size: 14px;
+            color: #B0B0B0;
+        }
+
+        /* ===== RESPONSIVE ===== */
+        @media (max-width: 992px) {
+            .container {
+                flex-direction: column;
+                padding: 40px 20px;
+            }
+            
+            .box-img {
+                width: 100%;
+                height: 300px;
+                margin-bottom: 20px;
+            }
+            
+            .content-center {
+                order: -1;
+                margin-bottom: 30px;
+                width: 100%;
+            }
+            
+            .navbar-nav {
+                background-color: rgba(0, 51, 102, 0.95);
+                padding: 15px;
+                border-radius: 0 0 10px 10px;
+            }
+            
+            .navbar-nav .nav-link {
+                text-align: center;
+                margin: 5px 0;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .content-center h1 {
+                font-size: 26px;
+            }
+            
+            .footer-content {
+                flex-direction: column;
+                text-align: center;
+            }
+        }
+
+            .brand-text {
+    margin-left: 12px;
+    font-size: 18px;
+    font-weight: 600;
+    color: #FFFFFF;
+    white-space: nowrap;
+}
+
+.titulo-formatos {
+    color: #003366; /* azul institucional */
+    font-weight: bold;
+    margin-top: 40px;
+    text-transform: uppercase;
+}
+
+.container .card {
+    border: 2px solid #BF9B4C;
+    border-radius: 10px;
+}
+
+        /* ===== MODAL ASISTENTE ===== */
+
+#chatModal .modal-content{
+    border: none;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 5px 20px rgba(0,0,0,0.25);
+}
+
+#chatModal .modal-header{
+    background: linear-gradient(to right, #0784a3, #003366);
+    color: white;
+    border-bottom: 4px solid #BF9B4C;
+}
+
+#chatModal .modal-title{
+    font-weight: 600;
+    letter-spacing: .5px;
+}
+
+#chatModal .btn-close{
+    filter: brightness(0) invert(1);
+}
+
+#chatModal .modal-body{
+    background-color: #f4f4f4;
+    padding: 20px;
+}
+
+#chatBox{
+    height: 300px;
+    overflow-y: auto;
+    background: #ffffff;
+    border: 2px solid #BF9B4C;
+    border-radius: 8px;
+    padding: 12px;
+    box-shadow: inset 0 1px 4px rgba(0,0,0,0.08);
+}
+
+#mensaje{
+    border-radius: 50px;
+    border: 1px solid #ced4da;
+}
+
+#mensaje:focus{
+    border-color: #0784a3;
+    box-shadow: 0 0 0 0.2rem rgba(7,132,163,0.25);
+}
+
+#chatModal .modal-footer{
+    background: #ffffff;
+    border-top: 1px solid #e0e0e0;
+}
+
+#chatModal .btn-primary{
+    background: linear-gradient(to right, #0784a3, #003366);
+    border: none;
+    border-radius: 50px;
+    padding: 8px 25px;
+    font-weight: 500;
+    transition: all .3s ease;
+}
+
+#chatModal .btn-primary:hover{
+    color: #BF9B4C;
+    transform: translateY(-2px);
+}
