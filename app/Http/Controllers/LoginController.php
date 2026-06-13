@@ -9,16 +9,16 @@ use Illuminate\Support\Facades\Http;
 
 class LoginController extends Controller
 {
-    /**
-     * Mostrar formulario de login
+    /*
+     Mostrar formulario de login
      */
     public function index()
     {
         return view('home.inicio');
     }
 
-    /**
-     * Procesar login
+    /*
+     Procesar login
      */
     public function login(Request $request)
     {
@@ -51,14 +51,7 @@ class LoginController extends Controller
         }
 
         /*
-        |-------------------------------------------------
-        | Validar contraseña o teléfono
-        |-------------------------------------------------
-        |
-        | Permite iniciar sesión con:
-        | - contraseña registrada
-        | - teléfono registrado
-        |
+        Validar contraseña o teléfono
         */
 
         $passwordCorrecta = Hash::check(
@@ -78,9 +71,7 @@ class LoginController extends Controller
         }
 
         /*
-        |-------------------------------------------------
-        | Crear sesión
-        |-------------------------------------------------
+        Crear sesión
         */
 
         session([
@@ -92,9 +83,7 @@ class LoginController extends Controller
         ]);
 
         /*
-        |-------------------------------------------------
-        | Admin
-        |-------------------------------------------------
+        Admin
         */
 
         if ($usuario->email == 'admin@admin.com') {
@@ -104,17 +93,16 @@ class LoginController extends Controller
         }
 
         /*
-        |-------------------------------------------------
-        | Usuario normal
-        |-------------------------------------------------
+        Usuario normal
+       
         */
 
         return redirect()
             ->route('session');
     }
 
-    /**
-     * Cerrar sesión
+    /*
+     Cerrar sesión
      */
 public function logout(Request $request)
 {

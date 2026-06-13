@@ -101,48 +101,70 @@
 
 </div> 
 
-<!-- CONTENIDO -->
 <div class="container">
+
     <div class="info-section">
         <img src="{{ asset('images/Inicio.png') }}">
     </div>
-    <div method="POST" action="" class="form-section">
-        <h2 class="text-primary">¡Inicia Sesión!</h2>
-        <p>Llena los siguientes campos para Iniciar Sesión y aplicar los formatos.</p>
+
+    <div class="form-section">
+
+        <h2 class="text-primary">
+            ¡Recuperar Contraseña!
+        </h2>
+
+        <p>
+            Ingresa el código recibido en tu correo y establece una nueva contraseña.
+        </p>
+
         <form method="POST"
-      action="{{ route('login.validar') }}">
+              action="#">
 
-    @csrf
+            @csrf
 
-    <input type="text"
-           class="form-control"
-           name="email"
-           placeholder="Correo institucional">
-
-    <input type="password"
-           class="form-control"
-           name="password"
-           placeholder="Contraseña">
+            <input type="text"
+                   class="form-control"
+                   name="codigo"
+                   placeholder="Código de recuperación"
+                   required>
 
             <br>
 
-            <div class="g-recaptcha"
-                data-sitekey="{{ env('RECAPTCHA_SITE_KEY') }}">
+            <input type="password"
+                   class="form-control"
+                   name="password"
+                   placeholder="Nueva contraseña"
+                   required>
+
+            <br>
+
+            <input type="password"
+                   class="form-control"
+                   name="password_confirmation"
+                   placeholder="Confirmar contraseña"
+                   required>
+
+            <br>
+
+            <button type="submit"
+                    class="btn btn-primary">
+                Actualizar Contraseña
+            </button>
+
+            <div class="mt-3">
+
+                <a href="{{ route('login') }}">
+                    Regresar al inicio de sesión
+                </a>
+
             </div>
 
-            <br>
-            
-    <button type="submit"
-            class="btn btn-primary">
-            Ingresar
-    </button>
-    <div class="mt-3">
-
-        <a href="{{ route('password.reset') }}">
-            ¿Olvidaste tu contraseña?
-        </a>
+        </form>
 
     </div>
+
+</div>
+<!-- CONTENIDO -->
 </form>
     </div>
 </div> 

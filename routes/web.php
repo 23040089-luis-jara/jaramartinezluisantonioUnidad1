@@ -29,9 +29,7 @@ use App\Http\Controllers\LoginController;
 use App\Http\Controllers\SessionController;
 
 /*
-|--------------------------------------------------------------------------
-| INDEX
-|--------------------------------------------------------------------------
+INDEX
 */
 
 Route::get('/a', function () {
@@ -40,9 +38,7 @@ Route::get('/a', function () {
 
 
 /*
-|--------------------------------------------------------------------------
-| LOGIN
-|--------------------------------------------------------------------------
+LOGIN
 */
 
 Route::get('/login', [LoginController::class, 'index'])
@@ -52,28 +48,14 @@ Route::post('/login', [LoginController::class, 'login'])
         ->name('login.validar');
 
 /*
-|--------------------------------------------------------------------------
-| SESSION
-|--------------------------------------------------------------------------
+SESSION
 */
 
 Route::get('/session', [SessionController::class, 'index'])
         ->name('session');
 
 /*
-|--------------------------------------------------------------------------
-| ADMIN
-|--------------------------------------------------------------------------
-*/
-
-Route::get('/admin', function () {
-    return view('admin');
-})->name('admin');
-
-/*
-|--------------------------------------------------------------------------
-| LOGOUT
-|--------------------------------------------------------------------------
+LOGOUT
 */
 
 Route::post('/logout', [LoginController::class, 'logout'])
@@ -84,3 +66,12 @@ use App\Http\Controllers\ChatBotController;
 Route::post('/chatbot',
     [ChatBotController::class,'respuesta'])
     ->name('chatbot');
+
+
+Route::get('/reset-password', function () {
+    return view('home.reset');
+})->name('password.reset');
+
+Route::get('/error', function () {
+    return view('home.error');
+})->name('error');
